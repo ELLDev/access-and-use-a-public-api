@@ -9,18 +9,21 @@ Base and header styles
 }
 
 body {
-  margin: 2rem 1rem;
   background: whitesmoke;
   font-family: "Roboto", sans-serif;
 }
 
+main {
+  margin: 2rem 0;
+}
+
 header {
-  margin: 0;
+  padding: 2rem 0 0;
   text-align: center;
 }
 
 h1 {
-  margin: 0 0 1.5rem 0;
+  margin: 0 1rem 1.5rem;
   color: rgb(66, 66, 66);
   text-transform: uppercase;
   font-weight: 500;
@@ -37,38 +40,44 @@ ul.employee-list {
   list-style-type: none;
 }
 
-li {
-  margin: 1rem;
-  padding: 1rem;
-  background: snow;
-  list-style-type: none;
-  border: 1px solid grey;
-  border-radius: 5px;
-}
-
 /* ================================= 
   Employee card styles
 ==================================== */
 
 li.employee {
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 350px;
   display: flex;
   justify-content: left;
+  list-style-type: none;
+  background: snow;
+  border: 1px solid grey;
+  border-radius: 5px;
 }
 
-li.employee img {
-  margin-right: 1rem;
-  width: 40%;
+img.avatar {
   border-radius: 50%;
 }
 
+li.employee img {
+  width: 30%;
+  min-width: 30%;
+}
+
 div.employee-details {
+  margin: 0 1rem;
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
 }
 
 li.employee h3.name {
   margin: 0.5rem 0;
+}
+
+span {
+  display: block;
 }
 
 span.email {
@@ -77,8 +86,69 @@ span.email {
 
 span.email,
 span.address {
-  display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.75em;
+}
+
+/* ================================= 
+  Modal window styles
+==================================== */
+
+body {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(100, 100, 100, 0.4);
+}
+
+.modal {
+  margin: 15% auto auto;
+  padding: 30px 20px;
+  width: 300px;
+  position: relative;
+  text-align: center;
+  background: white;
+  border: 1px solid #778;
+  border-radius: 5px;
+}
+
+.modal-close {
+  padding: 0.2rem 0.5rem;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  background: tomato;
+  color: white;
+  border: 1px solid red;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.modal-content img {
+  width: 50%;
+}
+
+.modal-content h3.name {
+  margin-bottom: 1rem;
+}
+
+hr {
+  margin: 1rem 0;
+}
+
+.modal-content span {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
 }
 
 /* ================================= 
@@ -87,11 +157,16 @@ span.address {
 
 @media (min-width: 768px) {
   body {
-    margin: 2rem;
+    padding: 2rem;
   }
+
   h1 {
     margin: 2rem 0 1rem;
     font-size: 1.75rem;
+  }
+
+  main {
+    margin: 2rem 0;
   }
 
   /* ================================= 
@@ -101,32 +176,31 @@ span.address {
   ul.employee-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
   }
-  
+
   /* ================================= 
     768px -    Employee card styles
   ==================================== */
-  
+
   li.employee {
     margin: 1rem 0;
     display: flex;
     width: 48%;
+    max-width: 380px;
   }
-  
+
   li.employee:nth-child(2n) {
     margin-left: 1rem;
   }
 
   li.employee img {
-    margin-right: 1rem;
-    width: 40%;
     border-radius: 50%;
   }
 
   li.employee h3.name {
     margin: 0 0 1rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   span.email {
@@ -135,62 +209,112 @@ span.address {
 
   span.email,
   span.address {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
-  
+
+  /* ================================= 
+    768px -    Modal window styles
+  ==================================== */
+
+  .modal {
+    width: 375px;
+  }
+
+  .modal-content img {
+    width: 40%;
+    min-width: 40%;
+  }
+
+  .modal-content h3.name {
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
-
   h1 {
     margin: 3rem 0 2rem;
     font-size: 2rem;
   }
-  
+
   /* ================================= 
     1024px -    Employee card styles
   ==================================== */
 
   li.employee {
     padding: 1.5rem;
+    max-width: 440px;
   }
 
   li.employee:nth-child(2n) {
     margin-left: 1.5rem;
   }
 
-  li.employee img {
-    margin-right: 1.5rem;
-  }
-
   li.employee h3.name {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   span.email,
   span.address {
-    font-size: 1.35rem;
+    font-size: 1rem;
+  }
+
+  /* ================================= 
+    1024px -    Modal window styles
+  ==================================== */
+
+  .modal {
+    width: 550px;
+  }
+
+  .modal-content img {
+    margin: 1rem;
+    width: 40%;
+  }
+
+  .modal-content h3.name {
+    margin-top: 1rem;
+    font-size: 2.2rem;
+  }
+
+  hr {
+    margin: 2rem;
+  }
+
+  .modal-content span {
+    font-size: 1.5rem;
   }
 }
 
-@media (min-width: 1350px) {
-  
+@media (min-width: 1400px) {
+  main {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1700px;
+  }
+
   h1 {
+    margin-left: auto;
+    margin-right: auto;
     text-align: left;
     font-size: 2rem;
   }
 
-  body {
-    margin: 4rem;
+  /* ================================= 
+    1400px -   List styles
+  ==================================== */
+
+  ul.employee-list {
+    justify-content: space-between;
   }
 
   /* ================================= 
-    1350px -    Employee card styles
+    1400px -    Employee card styles
   ==================================== */
 
   li.employee {
     margin-right: 2rem;
     width: 31%;
+    max-width: unset;
   }
 
   li.employee:nth-child(2n) {
@@ -199,5 +323,29 @@ span.address {
 
   li.employee:nth-child(3n) {
     margin-right: 0;
+  }
+
+  span.email,
+  span.address {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1700px) {
+  h1 {
+    text-align: center;
+  }
+
+  /* ================================= 
+    1700px -    Employee card styles
+  ==================================== */
+
+  li.employee h3.name {
+    font-size: 2rem;
+  }
+
+  span.email,
+  span.address {
+    font-size: 1.25rem;
   }
 }
