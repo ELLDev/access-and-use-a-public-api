@@ -9,6 +9,7 @@ Base and header styles
 }
 
 body {
+  position: relative;
   background: whitesmoke;
   font-family: "Roboto", sans-serif;
 }
@@ -92,10 +93,6 @@ span.address {
 /* ================================= 
   Modal window styles
 ==================================== */
-
-body {
-  position: relative;
-}
 
 .overlay {
   position: absolute;
